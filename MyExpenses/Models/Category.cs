@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MyExpenses.Models
 {
@@ -6,8 +8,11 @@ namespace MyExpenses.Models
     {
         [Key]
         public int CategoryId { get; set; }
+        [Column(TypeName = "nvarchar(50)")]
         public string Title { get; set; }
+        [Column(TypeName = "nvarchar(5)")]
         public string Icon { get; set; }
-        public string Type { get; set; }
+        [Column(TypeName = "nvarchar(10)")]
+        public string Type { get; set; } = "Expense";
     }
 }
